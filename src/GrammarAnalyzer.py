@@ -2,10 +2,16 @@ FIRST = {}
 
 FOLLOW = {}
 # Follow的三种情况：
+# S为开始符号，将$加入Follow(S)
 # S->...Ab...: 将b加入Follow(A)
 # S->...AB...: 将First(B)-{ε}加入Follow(A)
 # S->...aB...: 将Follow(A)加入Follow(B)
-# S为开始符号，将$加入Follow(S)
+
+# 摘自百度百科
+# 集合 Follow (A) 的定义如下：
+# （1）若 A 是开始符号，则#就在 Follow (A) 中。
+# （2）若存在产生式B →aAg ，则First (g) - {ε }在 Follow (A) 中。
+# （3）若存在产生式B →aAg ，且ε在 First (g) 中，则 Follow (A)包括 Follow (B)。
 
 # M-->E` N-->T`
 sentences = ['E->TM', 'M->+TM', 'M->ε', 'T->FN', 'N->*FN', 'N->ε', 'F->(E)', 'F->i']
@@ -70,19 +76,11 @@ def getFollow_3():
             break
 
 
+# sentences = ['E->TM', 'M->+TM', 'M->ε', 'T->FN', 'N->*FN', 'N->ε', 'F->(E)', 'F->i']
 def getMyFollow():
-    part_begin = set([])
-    part_end = set([])
     for sentence in sentences:
-        part_begin.add(sentence.split("->")[0])
-        part_end.add(sentence.split("->")[1])
-        # 如果是 S->a 直接推出终结符，则continue，例如'F->i'，默认不存在'F->M'类型？？？
-    print(part_begin, part_end)
-    for s in part_begin:
-        for e in part_end:
-            if s in e:
-                index = e.index(s)
-                print(index, s)
+        part_begin = sentence.split("->")[0]
+        part_end = sentence.split("->")[1]
 
 
 def getFollow():
