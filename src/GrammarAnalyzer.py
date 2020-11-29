@@ -20,12 +20,9 @@ sentences = ['E->TM', 'M->+TM', 'M->ε', 'T->FN', 'N->*FN', 'N->ε', 'F->(E)', '
 # 初始化 first集和 follow集合字典中的键值对中的 值 为空
 def init():
     for sentence in sentences:
-        part_begin = sentence.split("->")[0]
-        FIRST[part_begin] = ""
-        FOLLOW[part_begin] = "$"
-    # print('初始化First和Follow：\n', FIRST, '\n', FOLLOW)
-    # {'E': '', 'M': '', 'T': '', 'N': '', 'F': ''}
-    # {'E': '$', 'M': '$', 'T': '$', 'N': '$', 'F': '$'}
+        part_begin = sentence.split('->')[0]
+        FIRST[part_begin] = ''
+        FOLLOW[part_begin] = '$'
 
 
 # 求first集中第一部分，针对 A->b 型，直接推出第一个字符为终结符的部分，把b追加到first集合中
