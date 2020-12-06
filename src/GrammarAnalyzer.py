@@ -5,7 +5,7 @@ FOLLOW = {}
 # S为开始符号，将$加入Follow(S)
 # S->...Ab...: 将b加入Follow(A)
 # S->...AB...: 将First(B)-{ε}加入Follow(A)
-# S->...aB...: 将Follow(A)加入Follow(B)
+# A->...aB...: 将Follow(A)加入Follow(B)
 
 # 摘自百度百科
 # 集合 Follow (A) 的定义如下：
