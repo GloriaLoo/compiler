@@ -5,12 +5,12 @@ FOLLOW = {}
 # A为开始符号，将$加入Follow(A)
 # S->...Ab...: 将b加入Follow(A)
 # S->...AB...: 将First(B)-{ε}加入Follow(A)
-# B->...aA...: 将Follow(B)加入Follow(A)；a可以是终结符或者非终结符？？？
+# B->...aA...或者B->...aAC..，且First(C)包含ε: 将Follow(B)加入Follow(A)；a可以是终结符或者非终结符？？？
 
 # 摘自百度百科
 # 集合 Follow (A) 的定义如下：
 # （1）若 A 是开始符号，则#就在 Follow (A) 中。
-# （2）若存在产生式B →aAg ，则First (g) - {ε }在 Follow (A) 中。
+# （2）若存在产生式B →aAg ，则First (g) - {ε}在 Follow (A) 中。
 # （3）若存在产生式B →aAg ，且ε在 First (g) 中，则 Follow (A)包括 Follow (B)。
 
 # M-->E` N-->T`
