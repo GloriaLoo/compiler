@@ -54,7 +54,7 @@ def getFirstFinal():
         FIRST[key] = temp
 
 
-def getFollow_3():
+def getFollowFinal():
     while 1:
         test = FOLLOW
         getFollow()
@@ -69,7 +69,6 @@ def getFollow_3():
 
 
 # sentences = ['E->TM', 'M->+TM', 'M->ε', 'T->FN', 'N->*FN', 'N->ε', 'F->(E)', 'F->i']
-
 
 def getFollow():
     for sentence in sentences:
@@ -116,6 +115,7 @@ def getFollow():
 
 
 def main():
+    # 初始化
     init()
     # 求First
     getFirst_1()
@@ -129,34 +129,15 @@ def main():
         print('FIRST(' + key + ')' + ' = { ' + s + ' }')
 
     # 求Follow
-    getMyFollow()
-    # getFollow()
-    # getFollow_3()
-    # print(FOLLOW)
+    getFollow()
+    getFollowFinal()
     # 输出Follow
+    for key, value in FOLLOW.items():
+        s = value[0]
+        for temp in value[1:]:
+            s = s + ',' + temp
+        print("FOLLOW(" + key + ")" + " = {" + s + "}")
 
 
 if __name__ == '__main__':
     main()
-
-# init()
-# getFirst()
-# print('1: ', FIRST)
-# getFisrt_3()
-# getFisrt_3()
-# # print(  FIRST )
-# getFOLLOW_3()
-# getFOLLOW_3()
-# # print(FOLLOW)
-
-# for i, j in FIRST.items():
-#     s = j[0]
-#     for temp in j[1:]:
-#         s = s + ',' + temp
-#     print("FIRST(" + i + ")" + " = {" + s + "}")
-#
-# for i, j in FOLLOW.items():
-#     s = j[0]
-#     for temp in j[1:]:
-#         s = s + ',' + temp
-#     print("FOLLOW(" + i + ")" + " = {" + s + "}")
