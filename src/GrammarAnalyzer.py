@@ -58,7 +58,7 @@ def getFollowFinal():
     while 1:
         test = FOLLOW
         getFollow()
-        ##去除重复项
+        # 去除重复项
         for i, j in FOLLOW.items():
             temp = ""
             for word in list(set(j)):
