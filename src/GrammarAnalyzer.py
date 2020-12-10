@@ -1,3 +1,6 @@
+# 计算FIRST、FOLLOW集合
+
+
 class GrammarAnalyzer:
     def __init__(self, sentences):
         self.__sentences = sentences
@@ -31,6 +34,7 @@ class GrammarAnalyzer:
             # '+'.isupper() --> False
             if not part_end[0].isupper():
                 self.__FIRST[part_begin] = self.__FIRST.get(part_begin) + part_end[0]
+                self.__FIRST[part_end] = part_end[0]
         # print('First1: \t', FIRST)  # {'E': '', 'M': '+ε', 'T': '', 'N': '*ε', 'F': '(i'}
 
     # 求first第二部分，针对 A->B... 型，把B的first集加追加到A的first集合中
@@ -128,3 +132,7 @@ class GrammarAnalyzer:
         self.__getFollow_1()
         self.__getFollowFinal()
         return self.__FOLLOW
+
+# g = GrammarAnalyzer(['E->TM', 'M->+TM', 'M->ε', 'T->FN', 'N->*FN', 'N->ε', 'F->(E)', 'F->i'])
+# print(g.getFirst())
+# print(g.getFollow())
