@@ -30,6 +30,12 @@ class LL1:
         g = GrammarAnalyzer(self.__sentences)
         self.__FIRST = g.getFirst()
         self.__FOLLOW = g.getFollow()
+        print('=' * 31, 'FIRST', '=' * 32)
+        for key in self.__FIRST.keys():
+            print('FIRST(', key, ') = {', self.__FIRST.get(key), '}')
+        print('=' * 31, 'FOLLOW', '=' * 31)
+        for key in self.__FOLLOW.keys():
+            print('FIRST(', key, ') = {', self.__FOLLOW.get(key), '}')
         pass
 
     def __getVtVn(self):
