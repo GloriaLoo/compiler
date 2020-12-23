@@ -35,7 +35,7 @@ class LL1:
             print('FIRST(', key, ') = {', self.__FIRST.get(key), '}')
         print('=' * 31, 'FOLLOW', '=' * 31)
         for key in self.__FOLLOW.keys():
-            print('FIRST(', key, ') = {', self.__FOLLOW.get(key), '}')
+            print('FOLLOW(', key, ') = {', self.__FOLLOW.get(key), '}')
         pass
 
     def __getVtVn(self):
