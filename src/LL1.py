@@ -116,3 +116,31 @@ sentences = ['E->TM', 'M->+TM', 'M->ε', 'T->FN', 'N->*FN', 'N->ε', 'F->(E)', '
 ll1 = LL1(sentences)
 # print(ll1.getTable())  # 以字典形式打印
 ll1.printTable()
+
+# 运行结果
+# =============================== FIRST ================================
+# FIRST( E ) = { (i }
+# FIRST( M ) = { +ε }
+# FIRST( T ) = { (i }
+# FIRST( N ) = { ε* }
+# FIRST( F ) = { (i }
+# FIRST( +TM ) = { + }
+# FIRST( ε ) = { ε }
+# FIRST( *FN ) = { * }
+# FIRST( (E) ) = { ( }
+# FIRST( i ) = { i }
+# =============================== FOLLOW ===============================
+# FOLLOW( E ) = { )$ }
+# FOLLOW( M ) = { )$ }
+# FOLLOW( T ) = { +)$ }
+# FOLLOW( N ) = { +)$ }
+# FOLLOW( F ) = { +*)$ }
+# =============================== TABLE ================================
+# 	$ 			+ 			* 			( 			) 			i
+# N 	N->ε 		N->ε 		N->*FN 		error 		N->ε 		error
+# F 	error 		error 		error 		F->(E) 		error 		F->i
+# M 	M->ε 		M->+TM 		error 		error 		M->ε 		error
+# T 	error 		error 		error 		T->FN 		error 		T->FN
+# E 	error 		error 		error 		E->TM 		error 		E->TM
+#
+# Process finished with exit code 0
